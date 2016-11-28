@@ -24,8 +24,8 @@ public class MidiReader {
 	private Sequence midiSequence;
 	private Track[] allTracks;
 	
-	int numTracks;
-	int[] trackPositions = new int[numTracks];
+	public int numTracks;
+	int[] trackPositions;
 	
 	
 	public MidiReader(String filePath){
@@ -44,42 +44,47 @@ public class MidiReader {
 	//Used to check contents of a track for debugging and testing
 	public void enumerateTrack(int trackNumber){
 		
-		Track currentTrack = allTracks[trackNumber];
 		/*MIDI files are composed of events which capture information such as note
 		 * onset, offset, and the velocity of the  note. The velocity is not needed
 		 * for our purposes, so we will not read it. Go thru all events*/
-		for (int i = 0; i < currentTrack.size(); i++){
+		
+
+			Track currentTrack = allTracks[trackNumber];
+
 			
-			MidiEvent event = currentTrack.get(i);
-			MidiMessage message = event.getMessage();
 			
-			if (message instanceof ShortMessage){  //This check is failing
-				ShortMessage currentShort = (ShortMessage) message;
+			for (int i = 0; i < currentTrack.size(); i++){
+				MidiEvent event = currentTrack.get(i);
+				MidiMessage message = event.getMessage();
 				
-				
-				if (currentShort.getCommand() == noteOn){
+				if (message instanceof ShortMessage){  //This check is failing
+					ShortMessage currentShort = (ShortMessage) message;
 					
-					int key = currentShort.getData1();
-					int octave = (key/12) - 1;
-					int note = key % 12;
-					String noteName = notes[note];
-					System.out.println("Note on: " + noteName + octave + "key: " + key);
 					
-				}else if (currentShort.getCommand() == noteOff){
-					
-					int key = currentShort.getData1();
-					int octave = (key/12) - 1;
-					int note = key % 12;
-					String noteName = notes[note];
-					System.out.println("Note off: " + noteName + octave + "key: " + key);
+					if (currentShort.getCommand() == noteOn){
+						
+						int key = currentShort.getData1();
+						int octave = (key/12) - 1;
+						int note = key % 12;
+						String noteName = notes[note];
+						System.out.println("Note on: " + noteName + octave + " key: " + key);
+						
+					}else if (currentShort.getCommand() == noteOff){
+						
+						int key = currentShort.getData1();
+						int octave = (key/12) - 1;
+						int note = key % 12;
+						String noteName = notes[note];
+						System.out.println("Note off: " + noteName + octave + "key: " + key);
+						
+					}
 					
 				}
 			}
-			
 		}
-		
+	
+	public void getSection(int trackNumber, int position, int numEvents){
 		
 	}
-		
-	
 }
+		
