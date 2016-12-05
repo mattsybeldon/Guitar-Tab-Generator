@@ -48,11 +48,8 @@ public class MidiReader {
 		 * onset, offset, and the velocity of the  note. The velocity is not needed
 		 * for our purposes, so we will not read it. Go thru all events*/
 		
-
 			Track currentTrack = allTracks[trackNumber];
 
-			
-			
 			for (int i = 0; i < currentTrack.size(); i++){
 				MidiEvent event = currentTrack.get(i);
 				MidiMessage message = event.getMessage();
