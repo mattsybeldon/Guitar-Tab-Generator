@@ -5,7 +5,7 @@ public class GuitarString {
 	String baseNote;
 	int stringOctave;
 	int numFrets = 24;
-	String[] notes = new String[numFrets+1];
+	protected String[] notes = new String[numFrets+1];
 	
 	public GuitarString(String rootNote){
 		

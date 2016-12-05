@@ -2,12 +2,16 @@ package instruments;
 
 public class Guitar {
 	
-	int numStrings;
+	protected int numStrings;
 	
-	GuitarString[] strings;
-	String[] tuning = new String[numStrings];
+	protected GuitarString[] strings;
+	protected String[] tuning = new String[numStrings];
 	
-	public Guitar(int numStrings, String[] tuning) {
+	public Guitar(int numStrings, String[] tuning) throws Exception {
+		
+		if (tuning.length != numStrings){
+			throw new Exception();
+		}
 		
 		this.numStrings = numStrings;
 		this.tuning = tuning;
