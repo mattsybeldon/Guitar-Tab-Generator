@@ -4,15 +4,15 @@ public class InstrumentTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] tuning = {"E3", "A3", "D4", "G4", "B4", "E5"};
+		String[] tuning = {"E2", "A2", "D3", "G3", "B3", "E4"};
 		Guitar testGuitar = null;
 		try{
-			testGuitar = new Guitar(6, tuning);
+			testGuitar = new Guitar(tuning);
 		}catch(Exception e){
 			System.out.println("Tunings and number of strings not in agreement.");
 		}
 		
-		testGuitar.strings[1].printNotes();
+		testGuitar.strings[0].printNotes();
 			
 
 	}
