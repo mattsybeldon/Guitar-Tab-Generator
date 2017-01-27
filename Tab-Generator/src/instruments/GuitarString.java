@@ -5,12 +5,12 @@ public class GuitarString {
 	String baseNote;
 	int stringOctave;
 	int numFrets = 24;
-	protected String[] notes = new String[numFrets+1];
+	protected String[] notes = new String[numFrets+1]; //The plus one is because open string is valid
 	
 	public GuitarString(String rootNote){
 		
-		baseNote = rootNote;
-		stringOctave = Character.getNumericValue(baseNote.length() - 1);
+		this.baseNote = rootNote;
+		this.stringOctave = Character.getNumericValue(baseNote.length() - 1);
 		
 		//Keep track of the next note and octave to add
 		char noteLetter = rootNote.charAt(0);
@@ -71,19 +71,6 @@ public class GuitarString {
 		return targetFret;
 		
 	}
-	
-/*	int returnFret(String note){
-		
-		int octave = Character.getNumericValue(note.charAt(note.length() - 1));
-		int stringOctave = Character.getNumericValue(baseNote.charAt(baseNote.length() - 1));
-		int startNote = Character.getNumericValue(note.charAt(0));
-		
-		//Check if the note is possible on the string
-		
-		
-		
-		
-	}*/
 	
 
 }
