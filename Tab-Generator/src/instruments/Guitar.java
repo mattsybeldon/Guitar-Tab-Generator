@@ -7,13 +7,9 @@ public class Guitar {
 	protected GuitarString[] strings;
 	protected String[] tuning = new String[numStrings];
 	
-	public Guitar(int numStrings, String[] tuning) throws Exception {
+	public Guitar(String[] tuning) throws Exception {
 		
-		if (tuning.length != numStrings){
-			throw new Exception();
-		}
-		
-		this.numStrings = numStrings;
+		this.numStrings = tuning.length;
 		this.tuning = tuning;
 		this.strings = new GuitarString[numStrings];
 	
