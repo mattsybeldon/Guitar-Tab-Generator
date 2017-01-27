@@ -19,6 +19,17 @@ public class Guitar {
 		
 	}
 	
+	public int[] returnFretCandidates(String note){
+		
+		int[] fretCandidates = new int[this.numStrings];
+		
+		for (int i = 0; i < this.numStrings; i++){
+			fretCandidates[i] = this.strings[i].returnFrets(note);
+		}
+		
+		return fretCandidates;
+	}
+	
 	
 
 }
