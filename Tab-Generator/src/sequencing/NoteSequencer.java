@@ -81,29 +81,8 @@ public class NoteSequencer {
 			}
 		}
 		return output;
-		
-		
 	}
-	
-	public static void main(String[] args){ //Testing
-		int[][] testArray = new int[4][];
-		String[] result = new String[4];
-		
-		String[] tuning = {"E2", "A2", "D3", "G3", "B3", "E4"};
-		Guitar testGuitar = new Guitar(tuning);
-		
-		testArray[0] = testGuitar.returnFretCandidates("E4");
-		testArray[1] = testGuitar.returnFretCandidates("F#4");
-		testArray[2] = testGuitar.returnFretCandidates("E5");
-		testArray[3] = testGuitar.returnFretCandidates("F#5");
-		
-		NoteSequencer testSequencer = new NoteSequencer(testGuitar);
-		
-		System.out.println("here we go");
-		result = testSequencer.returnFretSequence(testArray);
-		
-		System.out.println(Arrays.toString(result));
-	}
+
 	
 	
 	//public static string generateTab(int[] fretCandidates){
