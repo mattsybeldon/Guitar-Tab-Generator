@@ -1,4 +1,5 @@
 package instruments;
+import sequencing.NoteSequencer;
 
 public class InstrumentTest {
 
@@ -12,7 +13,10 @@ public class InstrumentTest {
 			System.out.println("Tunings and number of strings not in agreement.");
 		}
 		
-		testGuitar.strings[0].printNotes();
+		int[] result = (testGuitar.returnFretCandidates("E3"));
+		for (int i = 0; i < result.length; i++){
+			System.out.println(result[i]);
+		}
 			
 
 	}
