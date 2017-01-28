@@ -2,12 +2,12 @@ package instruments;
 
 public class Guitar {
 	
-	protected int numStrings;
+	public int numStrings;
 	
 	protected GuitarString[] strings;
 	protected String[] tuning = new String[numStrings];
 	
-	public Guitar(String[] tuning) throws Exception {
+	public Guitar(String[] tuning) {
 		
 		this.numStrings = tuning.length;
 		this.tuning = tuning;
