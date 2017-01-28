@@ -12,20 +12,24 @@ public class Node {
 		this.leaves = new Node[numStrings];
 	}
 	
+	public void printChildren(){
+		for (int i = 0; i < this.leaves.length; i++){
+			System.out.println(this.leaves[i].fretNumber);
+		}
+	}
+	
 	public Node buildTree(int[][] fretArray){
 		
 		Node root = this;
 		Node temp = root;
 		
-		numStrings = fretArray.length;
+		numStrings = fretArray[0].length;
 		
-		for (int i = 0; i < fretArray.length; i++){
-			for (int j = 0; j < fretArray[i].length; j++){
-				if (temp.leaves[j] == null){
-					Node child = new Node(numStrings, fretArray[i][j]);
-					temp.leaves[j] = child;
-					temp = child;
-				}
+		for (int i = 0; i < fretArray[0].length; i++){
+			temp = root;
+			for (int j = 0; j < fretArray.length; j++){
+				Node child = new Node(numStrings, fretArray[j][i]);
+				temp.leaves[i] = child;
 			}
 		}
 		
