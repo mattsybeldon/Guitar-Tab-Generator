@@ -8,7 +8,7 @@ class GuitarString:
     #    3. numFrets - The number of frets on the string. Stored as int
     #    4. self.notes - All possible self.notes on the string. Stored as int array.
 
-    def __init__(self, rootNote, numFrets):
+    def __init__(self, rootNote, *arg):
         if not(isinstance(rootNote, str)):
             raise TypeError("Guitar string root not specified with a string.")
         elif (rootNote == ''):
@@ -21,11 +21,14 @@ class GuitarString:
             self.baseNote = rootNote[0:len(rootNote)]
             self.stringOctave = rootNote[-1]
 
-        if not(isinstance(numFrets, int)):
-            raise TypeError("Number of frets to string not properly supplied.")
-        else:
-            self.numFrets = numFrets
-        
+        self.numFrets = []
+        for currentArg in arg:
+            print arg
+            if (isinstance(currentArg, int)):
+                self.numFrets = currentArg
+        if (not(isinstance(self.numFrets, int))):
+            self.numFrets = 24
+
         self.notes = []
 
         self.createStringNotes()

@@ -1,4 +1,4 @@
 from instruments import GuitarString 
 
-tempString = GuitarString("E2", 24)
+tempString = GuitarString("E2")
 print tempString.notes
